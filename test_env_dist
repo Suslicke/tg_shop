@@ -1,0 +1,6 @@
+DB_URL=postgresql+asyncpg://test_tg_shop:test_tg_shop@localhost:5441/test_tg_shop
+db_host=localhost
+db_port=5441
+db_name=test_tg_shop
+db_user=test_tg_shop
+db_pass=test_tg_shop

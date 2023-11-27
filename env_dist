@@ -1,0 +1,8 @@
+BOT_TOKEN=6660114204:AAHjWix0HOuoeuTjIJ2e_KkXsxCxpQKHFPw
+payment_token=something
+DB_URL=postgresql+asyncpg://tg_shop:tg_shop@db:5432/tg_shop
+db_host=localhost
+db_port=5440
+db_name=tg_shop
+db_user=tg_shop
+db_pass=tg_shop

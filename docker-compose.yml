@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+    db:
+        image: postgres:latest
+        restart: always
+        environment:
+            POSTGRES_USER: ${db_user}
+            POSTGRES_PASSWORD: ${db_pass}
+            POSTGRES_DB: ${db_name}
+        volumes:
+            - shop_tg:/var/lib/postgresql/data
+        ports:
+            - "5440:5432"
+
+    test_db:
+        image: postgres:latest
+        restart: always
+        environment:
+            POSTGRES_USER: ${test_db_user}
+            POSTGRES_PASSWORD: ${test_db_pass}
+            POSTGRES_DB: ${test_db_name}
+        ports:
+            - "5441:5433"
+        volumes:
+            - test_shop_tg:/var/lib/postgresql/data
+        command: -p 5433
+
+    bot:
+        build:
+            context: .  # Assuming the Dockerfile is in the same directory as the docker-compose.yml
+        environment:
+            - SOME_ENV_VAR=value
+        restart: always
+        env_file:
+            - .env
+        depends_on:
+            - db
+
+volumes:
+    shop_tg:
+    test_shop_tg:
